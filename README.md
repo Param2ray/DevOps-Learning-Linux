@@ -1,7 +1,8 @@
 # DevOps-Learning-Linux
 This Repository shows the commands and topics I have learnt in the CoderCo Linux Module.
 
-## Commands:
+## Commands
+
 
 - ##### **pwd** - Displays the current working directory.
 - #### **cat file.txt** - Allows you to read the file.
@@ -19,5 +20,19 @@ This Repository shows the commands and topics I have learnt in the CoderCo Linux
 - #### **cp line.txt line_copy.txt** - Copies multiline.txt and creates a copy of it with the specified name.
 - #### **cp -r my_directory /tmp** - Copies my_directory to the tmp file. -r is required for directories.
 - #### **mv line.txt line_backup.txt** - Renames specified file.
-- #### **my line.txt /tmp** - Moves files to specified directory. 
+- #### **my line.txt /tmp** - Moves files to specified directory.
+
+## Shell, Program and Binaries
+
+When we type a command in Linux, the shell acts as the middleman between us and the operating system. Each command is basically a small program — written in a programming language and compiled into something the OS can understand and run.
+
+When we execute a command, the shell looks for it inside the directories listed in our $PATH and runs it if it’s found.
+
+In simple terms, the shell is the user interface that lets us talk to the operating system. There are different types of shells, each offering its own features and shortcuts. You can check which shell you’re currently using by running the echo $SHELL command.
+
+
+## Linux File System
+
+
+
 
