@@ -1,129 +1,192 @@
-# DevOps-Learning-Linux
-This Repository shows the commands and topics I have learnt in the CoderCo Linux Module.
+<div align="center">
 
-## Commands
+# 🐧 DevOps Learning – Linux Module  
+### _Hands-on Learning in Linux for DevOps & Cloud Engineering_
 
+💡 This repository documents the commands and concepts I’ve learned from the **CoderCo Linux module**,  
+built to strengthen my understanding of **Linux fundamentals** — the backbone of every DevOps workflow.
 
-- ##### **pwd** - Displays the current working directory.
-- #### **cat file.txt** - Allows you to read the file.
-- #### **grep "Hello" file.txt** - Looks for the specified pattern in the file.
-- #### **touch File.txt** - Created a file with the specified name.
-- #### **ls** - Lists files and directories in the current working directory.
-- #### **man ls** - Provides the manual page for the specified command.
-- #### **rm name.txt** - Removes the file, use -r to remove directories.
-- #### **echo "hello"** - Prints the specified string. Can be used with > or >> followed by a filename to write the output of the command to the file. e.g. echo "Hello World" > file.txt.
-- #### **cd /temp** - Changes current working directory to the specified directory. When you use cd .. this will take you up a level.
-- #### **mkdir newdir** - Creates a new directory in the current directory with the specified name. Add option -p to create a new directory within a non-existant path.
-- #### **rmdir newdir** - Removes the specified directory. Must be an empty directory.
-- #### **head line.txt** - Displays first 10 lines of the file. You can add the -n option followed by the number of lines you wish to see.
-- #### **tail line.txt** - Displays last 10 lines of the file. You can add the -n option followed by the number of lines you wish to see.
-- #### **cp line.txt line_copy.txt** - Copies multiline.txt and creates a copy of it with the specified name.
-- #### **cp -r my_directory /tmp** - Copies my_directory to the tmp file. -r is required for directories.
-- #### **mv line.txt line_backup.txt** - Renames specified file.
-- #### **my line.txt /tmp** - Moves files to specified directory.
+---
 
-## Shell, Program and Binaries
+</div>
 
-When we type a command in Linux, the shell acts as the middleman between us and the operating system. Each command is basically a small program — written in a programming language and compiled into something the OS can understand and run.
+## ⚙️ **Linux Commands Cheat Sheet**
 
-When we execute a command, the shell looks for it inside the directories listed in our $PATH and runs it if it’s found.
+| 🧾 Command | 💬 Description |
+|-------------|----------------|
+| `pwd` | Displays the current working directory. |
+| `cat file.txt` | Reads and displays the content of a file. |
+| `grep "Hello" file.txt` | Searches for a specific pattern in a file. |
+| `touch File.txt` | Creates a file with the specified name. |
+| `ls` | Lists files and directories in the current directory. |
+| `man ls` | Displays the manual for a command. |
+| `rm name.txt` | Removes a file (`-r` removes directories). |
+| `echo "hello"` | Prints text or writes output to a file (`echo "Hello" > file.txt`). |
+| `cd /temp` | Changes directory (`cd ..` moves up a level). |
+| `mkdir newdir` | Creates a new directory (`-p` creates nested ones). |
+| `rmdir newdir` | Removes an empty directory. |
+| `head line.txt` | Shows the first 10 lines of a file (`-n` customizes count). |
+| `tail line.txt` | Shows the last 10 lines of a file (`-n` customizes count). |
+| `cp file.txt copy.txt` | Copies files (`-r` for directories). |
+| `mv file.txt backup.txt` | Renames or moves a file. |
 
-In simple terms, the shell is the user interface that lets us talk to the operating system. There are different types of shells, each offering its own features and shortcuts. You can check which shell you’re currently using by running the echo $SHELL command.
+---
 
+## 🧠 **Shell, Programs & Binaries**
 
-## Linux File System
+The **shell** acts as the bridge between the user and the operating system.  
+Every command you type is a **small executable program** found in one of the directories defined in your `$PATH`.
 
-In Linux, the top-level directory is called the root directory, represented by a forward slash (/). Inside it, you’ll find several important folders — for example, the bin directory stores essential command-line programs like pwd. The boot directory contains files needed to start up the system, while the dev directory holds files that represent connected devices. Lastly, the etc directory includes system-wide configuration files and setup scripts that help manage how the system runs.
+```bash
+echo $SHELL   # Check which shell you're using
 
+💡 Bash and Zsh are the most common shells used in DevOps environments.
 
-## Spaces in directory names
+🗂️ Linux File System Overview
 
-When creating directories that have spaces in their names, you have two options. You can either put the directory name in quotes, or use a backslash before each space. For example, you can type mkdir 'new folder 1' or mkdir new\ folder\ 2. The same approach works when using other commands like cd to navigate into those directories.
+Directory	Description
+/	Root directory (top level)
+/bin	Essential command binaries (e.g. pwd, ls)
+/boot	Boot loader files
+/dev	Device files
+/etc	Configuration files
 
+🧩 Each directory plays a specific role in how the system operates.
 
-## VIM Text Editor
+📁 Handling Spaces in Directory Names
 
-Vim is a text editor commonly used in Linux. You can create or open a file by typing vim followed by the file name. If the file doesn’t already exist, Vim will automatically create it for you. When you first open Vim, it starts in command mode. To start typing, press i to switch to insert mode. When you’re done editing, press Esc to return to command mode.
+mkdir 'new folder'
 
+# or
 
-## Sudo
+mkdir new\ folder
 
-The sudo command lets you run tasks with superuser (administrator) privileges. Only authorized users can use it. For example, running sudo apt-get update refreshes the package list on your system. You’ll often need sudo for administrative tasks like installing software, creating new users, or modifying system configuration files.
+🧭 Use the same syntax when navigating with cd.
 
+✍️ VIM Text Editor Essentials
 
-## Roor User
+vim myfile.txt
 
-Sometimes you may need to switch to the root user to perform administrative tasks. You can do this by running the sudo su command. However, it’s generally best to avoid working directly as the root user since it has unrestricted access to the system. If you ever need to review actions taken with sudo, you can check the log file located at /var/log/auth.log.
+Inside Vim:
 
+Press i → Insert mode (start typing)
 
-## Users
+Press Esc → Command mode
 
-- sudo useradd Param – Creates a new user account named Param.
-- sudo passwd Param – Sets a password for the new user (you’ll be prompted to enter it).
-- su - Param – Switches to the Param user account.
-- sudo usermod -aG sudo Param – Gives the user administrative (sudo) privileges.
-- sudo deluser Param sudo – Removes the user from the sudo group, taking away admin access.
+Type :wq → Save and quit
 
+✨ Mastering Vim is essential for editing configuration files in remote servers.
 
-## Groups
+🔐 Sudo & Root User
 
-- /etc/group – Stores information about all the groups on the system.
-- sudo groupadd devops – Creates a new group named devops.
-- sudo usermod -aG devops Param – Adds the user Param to the devops group.
-- groups – Shows which groups the current user belongs to.
-- sudo gpasswd -d Param devops – Removes Param from the devops group.
-- sudo groupdel devops – Deletes the devops group from the system.
+Run commands with admin privileges:
 
+sudo apt-get update
 
-## Permissions
+Switch to root:
 
+sudo su
 
-- The ls -l command lists all files in a directory along with details like ownership and permissions. The first character shows the file type, followed by three sets of permissions: the first set is for the file owner,  the second is for the group, and the third is for everyone else.
+⚠️ Avoid staying in root mode unnecessarily — it can risk system stability.
 
-In Linux, each permission has an octal (numeric) value — read (r) is 4, write (w) is 2, and execute (x) is 1. These values are added together to set permissions. For example, giving the owner both read and write access would be 4 + 2 = 6.
+👥 Users & Groups Management
 
-You can change permissions using the chmod command in a few different ways:
+🧍 Users
 
-- sudo chmod 770 example.txt – Gives read, write, and execute permissions to the owner and group, but no access to others.
-- sudo chmod u+x,g+r,o-w example.txt – Adds execute permission for the owner, gives read permission to the group, and removes write permission for others.
-- sudo chmod ug=rw,o=r example.txt – Grants read and write permissions to the owner and group, and read-only permission to others.
+sudo useradd Param
+sudo passwd Param
+su - Param
+sudo usermod -aG sudo Param
+sudo deluser Param sudo
 
+👥 Groups
 
-## Ownership
+sudo groupadd devops
+sudo usermod -aG devops Param
+groups
+sudo gpasswd -d Param devops
+sudo groupdel devops
+🧾 File Permissions
 
-- sudo chown Param example.txt – Changes the ownership of the file to Param.
-- sudo chgrp admin2 example.txt – Changes the file’s group to admin2.
-- sudo chown ubuntu:admin2 example.txt – Updates both the file’s owner (to ubuntu) and its group (to admin2).
-- sudo chown -R Param my_directory – Changes the ownership of a directory and all the files inside it to Param.
+Check permissions:
 
+ls -l
 
-## Standard Streams
+Example output: -rwxr-xr--
 
+Permission	Value
+Read (r)	4
+Write (w)	2
+Execute (x)	1
 
-- Standard Input (stdin) – The commands or data you provide to the system.
-- Standard Output (stdout) – The response or results from those commands. You can save this output to a file using > (to overwrite) or >> (to append), followed by the file name.
-- Standard Error (stderr) – Error messages from commands. You can redirect these to a file using 2> (overwrite) or 2>> (append), followed by the file name.
-- To redirect both standard output and error at the same time, use &> (overwrite) or &>> (append), followed by the file name.
-- You can also send output to /dev/null to discard it completely — it acts like a “black hole” for data.
+Examples:
 
+sudo chmod 770 example.txt
+sudo chmod u+x,g+r,o-w example.txt
+sudo chmod ug=rw,o=r example.txt
 
-## Environment Variables
+🧍 Ownership
 
+sudo chown Param example.txt
+sudo chgrp admin2 example.txt
+sudo chown ubuntu:admin2 example.txt
+sudo chown -R Param my_directory
 
-Environment variables in Linux are settings that control how the system behaves and store configuration information. For example, the $PATH variable tells the system where to look for commands.
+🔑 Ownership is crucial for defining who can access or modify system files.
 
-- export NAME=value – Creates or sets an environment variable. If you run this in the terminal, it only lasts until the next reboot. To make it permanent, add the command to your .bashrc file and then run source .bashrc to apply the changes.
-- printenv – Displays all environment variables currently set.
-- echo $SHELL – Shows the value of a specific variable, in this case the shell you’re using.
+💬 Standard Streams
 
+Stream	Description	Redirection
+stdin	Input from keyboard or files	<
+stdout	Normal output	> or >>
+stderr	Error messages	2> or 2>>
 
-## Aliases
+Redirect both output and error:
 
+command &> output.txt
+Send output to “nothingness”:
 
-- alias – Displays all the aliases currently set in your shell.
-- alias hello='echo "hello world"' – Creates a temporary alias named hello that runs the specified command. To make this alias permanent, add the line to your .bashrc file and then run source .bashrc to apply the changes.
+command > /dev/null
 
+🌎 Environment Variables
 
+Command	Description
+export NAME=value	Creates a temporary variable.
+printenv	Lists environment variables.
+echo $PATH	Shows command lookup directories.
+
+Make it permanent:
+
+echo 'export NAME=value' >> ~/.bashrc
+source ~/.bashrc
+
+🧩 Aliases
+
+Command	Description
+alias	Lists all aliases.
+alias hello='echo "hello world"'	Creates a custom alias.
+
+Make it permanent:
+
+echo "alias hello='echo hello world'" >> ~/.bashrc
+source ~/.bashrc
+
+🧭 Summary
+
+This repository demonstrates my hands-on learning in Linux fundamentals —
+the cornerstone of DevOps, Cloud, and Infrastructure Engineering.
+
+It reflects my journey in:
+
+🧰 System administration
+
+⚙️ Automation & scripting
+
+☁️ Cloud readiness
+
+<div align="center">
+
+🖤 Built with curiosity, Bash, and persistence.
 
 
 
